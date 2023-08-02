@@ -1,6 +1,40 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import picture from "./profile.jpg";
 import "./styles.css";
+
+const skills = [
+  {
+    skill: "HTML",
+    level: "Intermediate",
+    color: "#ff0000",
+  },
+  {
+    skill: "CSS",
+    level: "Beginner",
+    color: "#0a78f5",
+  },
+  {
+    skill: "JavaScript",
+    level: "Beginner",
+    color: "#e9f50a",
+  },
+  {
+    skill: "TypeScript",
+    level: "Beginner",
+    color: "#2110c2",
+  },
+  {
+    skill: "React",
+    level: "In progress to beginner",
+    color: "#34c3eb",
+  },
+  {
+    skill: "Node.js",
+    level: "Decent",
+    color: "#00ff51",
+  },
+];
 
 const App = () => {
   return (
@@ -15,7 +49,7 @@ const App = () => {
 };
 
 const Avatar = () => {
-  return <img className="avatar" src="IMG_3879.jpg" alt="profile" />;
+  return <img className="avatar" src={picture} alt="profile" />;
 };
 
 const Intro = () => {
@@ -36,12 +70,23 @@ const Intro = () => {
 const SkillList = () => {
   return (
     <div className="skill-list">
-      <Skill skill="HTML & CSS" emoji="💻" color="Red" />
+      {/* {skills.map((skill) => <Skill skill={skill.skill} level={skill.level} color={skill.color} />)} */}
+
+      {/* {skills.map((skill) => ( */}
+      {/* <Skill skill={skill.skill} level={skill.level} color={skill.color} /> */}
+
+      {/* {skills.map((skill) => (
+        <Skill skill={skill.skill} level={skill.level} color={skill.color} />
+      ))} */}
+      {skills.map((skill) => (
+        <Skill color={skill.color} level={skill.level} skill={skill.skill} />
+      ))}
+
+      {/* <Skill skill="HTML & CSS" emoji="💻" color="Red" />
       <Skill skill="JavaScript" emoji="💻" color="Yellow" />
       <Skill skill="React" emoji="💻" color="lightblue" />
       <Skill skill="Node.js" emoji="💻" color="green" />
-      <Skill skill="TypeScript" emoji="💻" color="blue" />
-      {Skill({ emoji: "💻", skill: "Vue", color: "lightgreen" })}
+      <Skill skill="TypeScript" emoji="💻" color="blue" /> */}
     </div>
   );
 };
